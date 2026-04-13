@@ -1,0 +1,122 @@
+/* =========================
+   CONTACT / CTA (FINAL)
+========================= */
+
+.contact {
+  background: linear-gradient(135deg, #b71c1c, #e53935);
+  color: #fff;
+  text-align: center;
+  padding: 90px 0; /* ⬅ diperkecil, lebih pas */
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.12),
+    transparent 65%
+  );
+}
+
+.contact-box {
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.contact-title {
+  font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #ffffff; /* ⬅ full putih */
+  text-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* EFFECT THEME (underline + depth) */
+.contact-title span {
+  position: relative;
+  display: inline-block;
+}
+
+.contact-title span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.45);
+}
+
+/* DESC */
+.contact-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 34px;
+}
+
+/* BUTTONS */
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.btn-contact {
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* PRIMARY */
+.btn-contact.primary {
+  background: #fff;
+  color: #b71c1c;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.25);
+}
+
+.btn-contact.primary:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+/* SECONDARY */
+.btn-contact.secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-contact.secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* SOCIALS */
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+
+.contact-socials a {
+  font-size: 1.45rem;
+  color: #fff;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.contact-socials a:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.15);
+}

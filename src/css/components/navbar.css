@@ -1,0 +1,131 @@
+/* =========================
+   NAVBAR BASE
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo img {
+  height: 44px;
+  transition: transform 0.35s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   MENU
+========================= */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.nav-menu li a {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2b2b2b;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  padding: 6px 0;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+/* underline */
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #c62828, #ff5252);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+/* hover */
+.nav-menu li a:hover {
+  color: var(--color-primary-red);
+  transform: translateY(-2px);
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.nav-menu .btn-primary {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(90deg, #c62828, #ff5252);
+  box-shadow: 0 14px 40px rgba(198, 40, 40, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.nav-menu .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(198, 40, 40, 0.55);
+}
+
+/* =========================
+   ACTIVE STATE (OPTIONAL)
+========================= */
+
+.nav-menu li a.active {
+  color: var(--color-primary-red);
+}
+
+.nav-menu li a.active::after {
+  width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .navbar {
+    height: 72px;
+  }
+}

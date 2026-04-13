@@ -1,0 +1,108 @@
+/* =========================
+   HEADER / NAVBAR
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+
+  transition: all 0.35s ease;
+}
+
+/* When Scrolled */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   NAVBAR LAYOUT
+========================= */
+
+.navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary-red);
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   NAV MENU
+========================= */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+/* Links */
+.nav-menu a {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+/* Hover underline (Japanese subtle) */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-red);
+  transition: width 0.25s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--color-primary-red);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* CTA Button in Navbar */
+.nav-menu .btn-primary {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE (DESKTOP ONLY FOR NOW)
+========================= */
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+}
+
+.logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
