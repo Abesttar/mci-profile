@@ -1,9 +1,35 @@
 body {
   font-family: var(--font-main);
-  color: var(--dark);
+  color: var(--gray-text);
   line-height: 1.6;
+  background-color: var(--bg-light);
 }
 
-h1, h2 {
-  color: var(--red);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--red-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 2.25rem;
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.font-japanese {
+  font-family: var(--font-japanese);
 }

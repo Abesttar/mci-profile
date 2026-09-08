@@ -1,11 +1,71 @@
 :root {
-  --red: #c40000;
+  /* Brand Colors */
+  --red-primary: #b71c1c;
+  --red-secondary: #d32f2f;
+  --gold-primary: #d4af37;
+  --gold-light: #fbe9a7;
+  
+  /* Neutral Colors */
+  --bg-light: #fdfbf7;
   --white: #ffffff;
-  --yellow: #f5c400;
-  --dark: #111111;
+  --dark: #1a1a1a;
+  --gray-text: #4a4a4a;
+  --gray-border: #e0e0e0;
 
-  --font-main: 'Inter', sans-serif;
+  /* Typography */
+  --font-heading: 'Oswald', sans-serif;
+  --font-main: 'Montserrat', sans-serif;
+  --font-japanese: 'Yuji Syuku', serif;
 
-  --radius: 12px;
-  --transition: all .3s ease;
+  /* UI Elements */
+  --radius: 6px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  --radius-circle: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.2);
+  --shadow-gold: 0 12px 30px rgba(212, 175, 55, 0.3);
+  --shadow-red: 0 12px 30px rgba(183, 28, 28, 0.3);
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+  --transition-slow: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================================
+   CUSTOM SCROLLBAR — Japanese Style
+================================ */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-primary) #f0ebe3;
+}
+
+/* WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0ebe3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--red-primary) 0%,
+    var(--gold-primary) 50%,
+    var(--red-primary) 100%
+  );
+  border-radius: 4px;
+  border: 1px solid #f0ebe3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red-primary);
 }

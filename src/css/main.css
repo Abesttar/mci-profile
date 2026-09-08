@@ -1,30 +1,130 @@
-@import "base/reset.css";
-@import "base/variables.css";
-@import "base/typography.css";
+@import "base/reset.css?v=5";
+@import "base/variables.css?v=5";
+@import "base/typography.css?v=5";
 
-@import "layout/grid.css";
+@import "layout/grid.css?v=5";
 
-@import "components/buttons.css";
-@import "components/cards.css";
+@import "components/buttons.css?v=5";
+@import "components/cards.css?v=5";
 
-@import "sections/home.css";
-@import "./sections/home.css";
-@import "./layout/header.css";
-@import "./sections/services.css";
-@import "./sections/process.css";
-@import "./sections/advantages.css";
-@import "./sections/testimonials.css"; 
-@import "./sections/contact.css";
-@import "./sections/about.css";
-@import "./components/navbar.css";
-/* Scroll Reveal */
+@import "sections/home.css?v=5";
+@import "layout/header.css?v=5";
+@import "sections/services.css?v=5";
+@import "sections/process.css?v=5";
+@import "sections/advantages.css?v=5";
+@import "sections/testimonials.css?v=5"; 
+@import "sections/contact.css?v=5";
+@import "sections/about.css?v=5";
+@import "components/navbar.css?v=5";
+
+/* ================================
+   SCROLL REVEAL
+================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.8s ease;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.revealed {
+.revealed,
+.reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ================================
+   SECTION — WAVE DIVIDERS
+   Seamless wave transitions between sections
+================================ */
+
+/* Wave separator: bottom of home pointing down */
+.home .wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* ================================
+   CARD GLASS — semi-transparent
+   So body pattern shows slightly through cards
+================================ */
+
+.value-card,
+.advantage-card,
+.result-card,
+.service-item {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  background-color: var(--dark);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='22.9'%3E%3Cellipse cx='20' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3Cellipse cx='0' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3Cellipse cx='40' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3Cellipse cx='10' cy='11.45' rx='20' ry='12.5' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3Cellipse cx='30' cy='11.45' rx='20' ry='12.5' fill='none' stroke='%23d4af37' stroke-width='0.5' stroke-opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 40px 22.9px;
+  color: var(--white);
+  text-align: center;
+  padding: 36px 20px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ================================
+   JAPANESE DECORATIVE TEXT
+================================ */
+
+.jp-ornament {
+  position: absolute;
+  font-family: 'Yuji Syuku', serif;
+  font-size: 14vw;
+  color: rgba(183, 28, 28, 0.04);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.jp-ornament.right {
+  right: -4%;
+  top: 8%;
+  transform: rotate(-8deg);
+}
+
+.jp-ornament.left {
+  left: -4%;
+  top: 45%;
+  transform: rotate(8deg);
+}
+
+/* ================================
+   SECTION SEPARATOR LINES
+   Thin gold hairline between sections
+   for continuity instead of hard-cut
+================================ */
+
+.section + .section:not(.contact) {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Contact section - border removed, handled by SVG wave above */
+.contact {
+  border-top: none;
+  padding-top: 80px; /* Reduced padding since wave already provides visual space */
 }

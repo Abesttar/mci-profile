@@ -1,38 +1,69 @@
 .btn-primary {
-  background: var(--red);
+  background: var(--red-primary);
   color: var(--white);
-  padding: 12px 24px;
-  border-radius: var(--radius);
+  padding: 12px 28px;
+  border-radius: var(--radius-lg);
   text-decoration: none;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--red-primary);
+  box-shadow: var(--shadow-red);
   transition: var(--transition);
+  display: inline-block;
 }
 
 .btn-primary:hover {
-  background: var(--yellow);
-  color: var(--dark);
+  background: var(--gold-primary);
+  color: var(--white);
+  border-color: var(--gold-primary);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background: var(--yellow);
-  padding: 12px 24px;
-  border-radius: var(--radius);
+  background: var(--gold-primary);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--gold-primary);
+  box-shadow: var(--shadow-gold);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: var(--red-primary);
+  border-color: var(--red-primary);
+  box-shadow: var(--shadow-red);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--red);
-  color: var(--red);
+  border: 2px solid var(--red-primary);
+  color: var(--red-primary);
   font-weight: 600;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
 }
 
 .btn-outline-modern {
-  border-radius: 999px;
-  padding: 12px 26px;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-lg);
+  padding: 12px 28px;
+  transition: var(--transition);
 }
 
 .btn-outline-modern:hover {
-  background: var(--red);
+  background: var(--red-primary);
   color: var(--white);
+  box-shadow: var(--shadow-red);
   transform: translateY(-2px);
 }

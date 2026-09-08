@@ -3,9 +3,10 @@
 ========================= */
 
 .journey-map {
-  background: linear-gradient(180deg, #ffffff, #f7f7f7);
+  background: rgba(255, 255, 255, 0.5);
   padding-top: 140px;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* HEADER */
@@ -16,39 +17,48 @@
 
 /* TITLE */
 .journey-title {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 6vw, 4rem);
-  font-weight: 900;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 22px;
+  text-transform: uppercase;
 }
 
 /* ROAD TO (FIXED, SOLID) */
 .road-to {
-  color: #2b2b2b;
-  font-weight: 600;
+  color: var(--dark);
   letter-spacing: 2px;
-  text-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: all 0.4s ease;
+  transition: var(--transition);
 }
 
 /* JAPAN (GRADIENT) */
 .road-japan {
-  background: linear-gradient(90deg, #c62828, #ff5252);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--red-primary);
   letter-spacing: 3px;
-  text-shadow: 0 18px 40px rgba(198,40,40,0.45);
-  transition: all 0.45s ease;
+  transition: var(--transition);
+  position: relative;
+}
+
+.road-japan::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 15px;
+  background: var(--gold-primary);
+  opacity: 0.3;
+  z-index: -1;
+  transform: rotate(-1deg);
 }
 
 /* HOVER EFFECT */
 .journey-title:hover .road-japan {
   letter-spacing: 6px;
-  text-shadow: 0 28px 60px rgba(198,40,40,0.6);
+  text-shadow: 0 15px 30px rgba(183,28,28,0.4);
 }
 
 .journey-title:hover .road-to {
@@ -57,134 +67,258 @@
 
 /* DESCRIPTION */
 .journey-desc {
-  font-size: 1.08rem;
-  line-height: 2;
-  color: #444;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-text);
 }
 
 /* HIGHLIGHT */
 .journey-desc .highlight {
-  color: var(--color-primary-red);
-  font-weight: 800;
+  color: var(--red-primary);
+  font-weight: 700;
 }
 
 /* BADGE */
 .journey-desc .badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 12px;
   margin: 0 4px;
-  background: rgba(198,40,40,0.12);
-  color: var(--color-primary-red);
-  border-radius: 999px;
+  background: var(--gold-light);
+  color: var(--dark);
+  border-radius: var(--radius);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 /* UNDERLINE EFFECT */
 .journey-desc .underline {
   position: relative;
   font-weight: 700;
+  color: var(--dark);
 }
 
 .journey-desc .underline::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -2px;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #c62828, #ff5252);
-  border-radius: 99px;
+  height: 2px;
+  background: var(--red-primary);
 }
 
 /* =========================
-   MAP
+   ZIGZAG TIMELINE
 ========================= */
 
-.journey-canvas {
+.zigzag-timeline {
   position: relative;
-  width: 100%;
-  height: 320px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-.journey-path {
+/* Central Line */
+.zigzag-timeline::before {
+  content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
   z-index: 1;
 }
 
-.journey-nodes {
+.timeline-item {
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
   z-index: 2;
 }
 
-.journey-node {
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Large Watermark Step Number */
+.timeline-step {
   position: absolute;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 170px;
-  cursor: pointer;
-  transition: transform 0.35s ease;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  font-weight: 700;
+  color: rgba(183, 28, 28, 0.05); /* very faint red */
+  z-index: -1;
+  pointer-events: none;
 }
 
-.journey-point {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 14px;
+.timeline-content {
+  width: 45%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  transition: all 0.4s ease;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: left;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border-color: var(--gold-primary);
+}
+
+/* Central node dot */
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -55px; /* (10% + 50px line gap distance approximately) - will be adjusted by flex */
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--white);
+  border: 4px solid var(--red-primary);
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 28px;
-  background: #fff;
-  border: 4px solid var(--color-primary-red);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-  transition: all 0.35s ease;
+  z-index: 5;
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.8);
+  transition: all 0.3s ease;
 }
 
-.journey-node h4 {
+.timeline-item:nth-child(even) .timeline-content::before {
+  right: auto;
+  left: -55px;
+}
+
+.timeline-content:hover::before {
+  background: var(--red-primary);
+  transform: translateY(-50%) scale(1.3);
+}
+
+/* Horizontal connecting line */
+.timeline-content::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -45px;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.3);
+  z-index: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  right: auto;
+  left: -45px;
+}
+
+.timeline-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  background: var(--bg-light);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.timeline-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  color: var(--gray-text);
   font-size: 1rem;
-  font-weight: 800;
-  margin-bottom: 6px;
+  line-height: 1.6;
 }
 
-.journey-node p {
-  font-size: 0.85rem;
-  color: #555;
-  line-height: 1.5;
+.final-step {
+  border: 2px solid var(--red-primary);
+  background: #fff;
 }
 
-.journey-node:hover {
-  transform: translate(-50%, -62%);
-}
-
-.journey-node:hover .journey-point {
-  background: var(--color-primary-red);
-  color: #fff;
-  transform: scale(1.15);
-}
-
-.journey-node.final .journey-point {
-  background: var(--color-primary-red);
-  color: #fff;
-  font-size: 32px;
+.final-step .timeline-icon {
+  background: var(--red-primary);
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .journey-canvas {
-    height: 380px;
-  }
-
-  .journey-node {
-    width: 150px;
-  }
-
   .journey-title {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+  }
+  
+  .zigzag-timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 60px);
+    text-align: left;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+  }
+  
+  .timeline-content::before {
+    right: auto;
+    left: -50px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content::before {
+    left: -50px;
+  }
+  
+  .timeline-content::after {
+    right: auto;
+    left: -40px;
+    width: 40px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content::after {
+    left: -40px;
+  }
+  
+  .timeline-step {
+    left: auto;
+    right: 20px;
+    font-size: 5rem;
   }
 }

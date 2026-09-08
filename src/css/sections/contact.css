@@ -3,12 +3,28 @@
 ========================= */
 
 .contact {
-  background: linear-gradient(135deg, #b71c1c, #e53935);
-  color: #fff;
+  background-color: var(--red-primary);
+  /* Seigaiha pattern in dark red on top of the red — keeps the Japanese theme */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='22.9'%3E%3Cellipse cx='20' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3Cellipse cx='0' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3Cellipse cx='40' cy='22.9' rx='20' ry='12.5' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3Cellipse cx='10' cy='11.45' rx='20' ry='12.5' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3Cellipse cx='30' cy='11.45' rx='20' ry='12.5' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 40px 22.9px;
+  color: var(--white);
   text-align: center;
-  padding: 90px 0; /* ⬅ diperkecil, lebih pas */
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .contact::after {
@@ -17,9 +33,10 @@
   inset: 0;
   background: radial-gradient(
     circle at top,
-    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.08),
     transparent 65%
   );
+  z-index: 0;
 }
 
 .contact-box {
@@ -30,37 +47,38 @@
 
 /* TITLE */
 .contact-title {
-  font-size: clamp(2.2rem, 4.5vw, 2.8rem);
-  font-weight: 900;
-  margin-bottom: 16px;
-  color: #ffffff; /* ⬅ full putih */
-  text-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--white);
+  text-transform: uppercase;
 }
 
 /* EFFECT THEME (underline + depth) */
 .contact-title span {
   position: relative;
   display: inline-block;
+  color: var(--gold-light);
 }
 
 .contact-title span::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -4px;
   width: 100%;
-  height: 4px;
-  background: #ffffff;
+  height: 3px;
+  background: var(--gold-primary);
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(255,255,255,0.45);
 }
 
 /* DESC */
 .contact-desc {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.95);
-  margin-bottom: 34px;
+  color: rgba(253, 251, 247, 0.9);
+  margin-bottom: 40px;
 }
 
 /* BUTTONS */
@@ -69,37 +87,45 @@
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .btn-contact {
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 0.95rem;
+  padding: 16px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* PRIMARY */
 .btn-contact.primary {
-  background: #fff;
-  color: #b71c1c;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.25);
+  background: var(--gold-primary);
+  color: var(--dark);
+  box-shadow: var(--shadow-gold);
 }
 
 .btn-contact.primary:hover {
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-4px);
+  background: var(--white);
+  color: var(--red-primary);
+  box-shadow: var(--shadow-md);
 }
 
 /* SECONDARY */
 .btn-contact.secondary {
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid var(--gold-primary);
+  color: var(--gold-primary);
+  background: transparent;
 }
 
 .btn-contact.secondary:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--white);
+  border-color: var(--white);
 }
 
 /* SOCIALS */
@@ -110,13 +136,14 @@
 }
 
 .contact-socials a {
-  font-size: 1.45rem;
-  color: #fff;
-  opacity: 0.85;
-  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  opacity: 0.8;
+  transition: var(--transition);
 }
 
 .contact-socials a:hover {
   opacity: 1;
-  transform: translateY(-4px) scale(1.15);
+  color: var(--white);
+  transform: translateY(-4px) scale(1.1);
 }

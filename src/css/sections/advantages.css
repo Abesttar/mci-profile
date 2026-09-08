@@ -3,7 +3,7 @@
 ========================= */
 
 .advantages {
-  background: linear-gradient(180deg, #ffffff, #f4f4f4);
+  background: rgba(212, 175, 55, 0.04); /* Faint gold tint - alternating */
   padding: 140px 0;
   overflow: hidden;
 }
@@ -15,57 +15,56 @@
 }
 
 .advantages-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 4rem);
   display: flex;
   gap: 14px;
   margin-bottom: 22px;
+  text-transform: uppercase;
 }
 
 .title-outline {
   color: transparent;
-  -webkit-text-stroke: 1.5px #111;
+  -webkit-text-stroke: 1.5px var(--dark);
   letter-spacing: 3px;
 }
 
 .title-fill {
-  background: linear-gradient(90deg, #c62828, #ff5252);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 900;
+  color: var(--red-primary);
+  font-weight: 700;
 }
 
 .advantages-desc {
-  font-size: 1.05rem;
-  line-height: 2;
-  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-text);
 }
 
 .advantages-desc .accent {
-  color: var(--color-primary-red);
+  color: var(--red-primary);
   font-weight: 700;
 }
 
 /* =========================
-   HORIZONTAL TRACK
+   STAGGERED GRID
 ========================= */
 
-.advantages-track {
-  display: flex;
-  gap: 36px;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  scroll-snap-type: x mandatory;
+.advantages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
 }
 
-.advantages-track::-webkit-scrollbar {
-  height: 8px;
-}
-
-.advantages-track::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #c62828, #ff5252);
-  border-radius: 99px;
+@media (min-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stagger-1 {
+    margin-top: 60px;
+  }
 }
 
 /* =========================
@@ -73,52 +72,119 @@
 ========================= */
 
 .advantage-card {
-  min-width: 360px;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 28px;
-  padding: 36px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 40px 30px;
   display: flex;
+  flex-direction: column;
   gap: 24px;
   align-items: flex-start;
-  scroll-snap-align: start;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: all 0.4s ease;
   position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  overflow: hidden;
 }
 
 .advantage-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 50px 120px rgba(198, 40, 40, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-color: var(--gold-primary);
 }
 
 .advantage-card.highlight {
-  border: 2px solid rgba(198, 40, 40, 0.4);
+  border: 1px solid var(--red-primary);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.advantage-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.advantage-card.highlight::before {
+  background: radial-gradient(circle, rgba(183, 28, 28, 0.08) 0%, transparent 70%);
+}
+
+.advantage-card:hover::before {
+  transform: scale(1.5);
+}
+
+/* Faded Kanji Ornament inside card */
+.advantage-card::after {
+  content: "信頼"; /* Trust */
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 8rem;
+  color: rgba(212, 175, 55, 0.03);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.advantage-card:nth-child(2)::after { content: "支援"; /* Support */ }
+.advantage-card:nth-child(3)::after { content: "明確"; /* Clear */ }
+.advantage-card.highlight::after { 
+  content: "日本"; /* Japan */ 
+  color: rgba(183, 28, 28, 0.03);
+}
+
+.advantage-card:hover::after {
+  transform: scale(1.1);
+  color: rgba(212, 175, 55, 0.06);
+}
+.advantage-card.highlight:hover::after {
+  color: rgba(183, 28, 28, 0.06);
 }
 
 /* ICON */
 .advantage-icon {
-  min-width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c62828, #ff5252);
+  background: var(--gold-primary);
   display: grid;
   place-items: center;
-  font-size: 28px;
-  color: #fff;
-  box-shadow: 0 16px 40px rgba(198, 40, 40, 0.45);
+  font-size: 32px;
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.advantage-card.highlight .advantage-icon {
+  background: var(--red-primary);
+  box-shadow: 0 10px 20px rgba(183, 28, 28, 0.3);
 }
 
 /* TEXT */
+.advantage-content {
+  position: relative;
+  z-index: 1;
+}
+
 .advantage-content h3 {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
   margin-bottom: 12px;
+  color: var(--dark);
 }
 
 .advantage-content p {
-  font-size: 0.98rem;
-  line-height: 1.8;
-  color: #444;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--gray-text);
 }
 
 /* =========================
@@ -135,8 +201,3 @@
   transform: translateY(0);
   transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }

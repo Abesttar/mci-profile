@@ -7,12 +7,17 @@
   <title>Mirai Crown Indonesia</title>
   <meta name="description" content="LPK Mirai Crown Indonesia adalah lembaga pendidikan dan penyalur kerja ke Jepang secara resmi dan profesional.">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Yuji+Syuku&display=swap" rel="stylesheet">
+
   <!-- CSS -->
-  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/main.css?v=7">
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
 
   <!-- Favicon -->
   <link rel="icon" href="public/images/logo/favicon.png">
@@ -45,6 +50,7 @@
 <!-- HOME -->
 <section id="home" class="section home">
   <div class="home-bg-circle"></div>
+  <div class="home-tategaki">未来を信じて、共に成長する</div>
 
   <div class="container home-content">
 
@@ -54,9 +60,13 @@
       <span class="home-badge">LPK Resmi Penyalur Kerja Jepang</span>
 
       <h1 class="home-title">
-        <span class="home-title-main">Wujudkan Karier</span>
-        <span class="home-title-accent">Anda di Jepang</span>
+        <span class="home-title-main">BANGUN KARIER MU</span>
+        <span class="home-title-accent">DI JEPANG</span>
       </h1>
+      
+      <p class="home-subtitle">
+        未来を信じて、共に成長する
+      </p>
 
       <p class="home-desc">
         <strong>Mirai Crown Indonesia</strong> adalah lembaga pelatihan kerja
@@ -86,55 +96,73 @@
   <div class="scroll-indicator" aria-hidden="true">
     <span></span>
   </div>
+
+  <!-- WAVE DIVIDER: home → about -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
+        fill="rgba(255,255,255,0.55)" />
+      <path d="M0,40 C360,10 720,60 1080,30 C1260,15 1380,45 1440,40 L1440,60 L0,60 Z"
+        fill="rgba(212,175,55,0.08)" />
+    </svg>
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section about">
+  <div class="jp-ornament right">信頼</div>
   <div class="container">
 
-    <!-- HEADER -->
-    <div class="about-header">
-      <h2 class="about-title">
-        Mitra Terpercaya Menuju <br />
-        Karier Profesional di Jepang
-      </h2>
-    </div>
-
-    <!-- FOUNDERS -->
-    <div class="about-founders">
-
-      <div class="founder-frame">
-        <img src="public/images/about/founder.jpg" alt="Founder Mirai Crown">
-        <div class="founder-overlay"></div>
-        <div class="founder-info">
-          <h4>Faisal Maulana</h4>
-          <span>Founder Mirai Crown</span>
+    <!-- SPLIT LAYOUT -->
+    <div class="about-split-layout">
+      
+      <!-- LEFT: TEXT -->
+      <div class="about-text-content reveal">
+        <div class="about-header">
+          <h2 class="about-title">
+            <span class="title-highlight">Mitra Terpercaya</span> Menuju
+            Karier Profesional di Jepang
+          </h2>
+        </div>
+        <div class="about-description">
+          <p class="about-lead">
+            Berdiri sejak <strong>2024</strong>, Mirai Crown Indonesia hadir sebagai
+            <span class="text-red">mitra strategis</span> bagi generasi Indonesia yang ingin
+            membangun karier profesional di Jepang.
+          </p>
+          <p>
+            Kami memadukan <strong>pelatihan Bahasa Jepang</strong>, pembentukan
+            mental kerja, dan pemahaman budaya industri Jepang untuk menciptakan
+            sumber daya manusia yang siap bersaing secara global.
+          </p>
         </div>
       </div>
 
-      <div class="founder-frame">
-        <img src="public/images/about/co-founder.jpg" alt="Co-Founder Mirai Crown">
-        <div class="founder-overlay"></div>
-        <div class="founder-info">
-          <h4>Daffa Candrika</h4>
-          <span>Co-Founder Mirai Crown</span>
+      <!-- RIGHT: VISUALS -->
+      <div class="about-visual-content reveal" style="transition-delay: 0.2s;">
+        
+        <div class="founder-profile founder-primary">
+          <div class="founder-photo-wrapper">
+            <img src="public/images/about/founder.jpg" alt="Faisal Maulana">
+          </div>
+          <div class="founder-badge">
+            <h4>Faisal Maulana</h4>
+            <span>Founder · 創設者</span>
+          </div>
         </div>
+
+        <div class="founder-profile founder-secondary">
+          <div class="founder-photo-wrapper">
+            <img src="public/images/about/co-founder.jpg" alt="Daffa Candrika">
+          </div>
+          <div class="founder-badge">
+            <h4>Daffa Candrika</h4>
+            <span>Co-Founder · 共同創設者</span>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-
-    <!-- DESCRIPTION -->
-    <div class="about-description">
-      <p class="about-lead">
-        Berdiri sejak <strong>2024</strong>, Mirai Crown Indonesia hadir sebagai
-        <span>mitra strategis</span> bagi generasi Indonesia yang ingin
-        membangun karier profesional di Jepang.
-      </p>
-      <p>
-        Kami memadukan <strong>pelatihan Bahasa Jepang</strong>, pembentukan
-        mental kerja, dan pemahaman budaya industri Jepang untuk menciptakan
-        sumber daya manusia yang siap bersaing secara global.
-      </p>
     </div>
 
     <!-- VALUES -->
@@ -194,25 +222,57 @@
 
     <!-- HEADER -->
     <div class="services-header">
-      <h2 class="services-title">Layanan Kami</h2>
+      <h2 class="services-title">Program Kami</h2>
+    </div>
+
+    <!-- PROGRAM KAMI (Bento Grid) -->
+    <div class="bento-grid">
+      
+      <div class="bento-item bento-large reveal">
+        <div class="bento-icon"><i class="fa-solid fa-torii-gate"></i></div>
+        <h4>KURSUS BAHASA JEPANG</h4>
+      </div>
+
+      <div class="bento-item bento-medium reveal" style="transition-delay: 0.1s;">
+        <div class="bento-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h4>TOKUTEI GINOU (SSW)</h4>
+      </div>
+
+      <div class="bento-item reveal" style="transition-delay: 0.2s;">
+        <div class="bento-icon"><i class="fa-solid fa-scroll"></i></div>
+        <h4>MAGANG JEPANG IM JAPAN/SO</h4>
+      </div>
+
+      <div class="bento-item bento-wide reveal" style="transition-delay: 0.3s;">
+        <div class="bento-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h4>ENGINEER/TEKNISI JEPANG</h4>
+      </div>
+
+      <div class="bento-item reveal" style="transition-delay: 0.4s;">
+        <div class="bento-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h4>NIHONGO GAKKOU</h4>
+      </div>
+
+    </div>
+
+    <!-- LAYANAN KAMI HEADER -->
+    <div class="services-header" style="margin-top: 80px;">
+      <h2 class="services-title">Layanan Lainnya</h2>
       <p class="services-desc">
         Mirai Crown Indonesia menyediakan layanan terintegrasi yang dirancang
         untuk memastikan setiap proses menuju kerja di Jepang berjalan aman,
-        legal, dan terarah — baik bagi pemula maupun yang telah berpengalaman.
+        legal, dan terarah.
       </p>
     </div>
 
-    <!-- SERVICES LIST -->
-    <div class="services-list">
+    <!-- SERVICES LIST (Alternating) -->
+    <div class="alternating-services">
 
       <!-- ITEM 1 -->
-      <div class="service-item">
-        <div class="service-head">
+      <div class="alt-service-item reveal">
+        <div class="alt-service-text">
           <span class="service-index">01</span>
           <h3>Lembaga Pelatihan Kerja (LPK)</h3>
-        </div>
-        <div class="service-body">
-          <img src="public/images/services/lpk.jpg" alt="LPK Bahasa Jepang">
           <p>
             Program pelatihan Bahasa Jepang terpadu bagi calon tenaga kerja yang
             ingin memulai dari nol hingga siap bekerja di Jepang. Peserta akan
@@ -221,16 +281,17 @@
             hingga proses pemberangkatan secara resmi.
           </p>
         </div>
+        <div class="alt-service-image">
+          <img src="public/images/services/lpk.jpg" alt="LPK Bahasa Jepang">
+          <div class="image-accent"></div>
+        </div>
       </div>
 
-      <!-- ITEM 2 -->
-      <div class="service-item">
-        <div class="service-head">
+      <!-- ITEM 2 (Reverse) -->
+      <div class="alt-service-item reverse reveal">
+        <div class="alt-service-text">
           <span class="service-index">02</span>
           <h3>Matching Job Jepang</h3>
-        </div>
-        <div class="service-body">
-          <img src="public/images/services/matching-job.jpg" alt="Matching Job Jepang">
           <p>
             Layanan pencocokan kerja bagi individu yang telah memiliki kemampuan
             Bahasa Jepang dan sertifikasi terkait, termasuk lulusan dari LPK
@@ -238,16 +299,17 @@
             Jepang yang sesuai dengan kompetensi dan kebutuhan peserta.
           </p>
         </div>
+        <div class="alt-service-image">
+          <img src="public/images/services/matching-job.jpg" alt="Matching Job Jepang">
+          <div class="image-accent"></div>
+        </div>
       </div>
 
       <!-- ITEM 3 -->
-      <div class="service-item">
-        <div class="service-head">
+      <div class="alt-service-item reveal">
+        <div class="alt-service-text">
           <span class="service-index">03</span>
           <h3>Jasa Pembuatan Visa Jepang</h3>
-        </div>
-        <div class="service-body">
-          <img src="public/images/services/visa.jpg" alt="Visa Jepang">
           <p>
             Kami menyediakan layanan pengurusan visa kerja Jepang dengan proses
             yang transparan dan sesuai regulasi. Seluruh tahapan dilakukan
@@ -255,22 +317,27 @@
             dokumen sebelum keberangkatan.
           </p>
         </div>
+        <div class="alt-service-image">
+          <img src="public/images/services/visa.jpg" alt="Visa Jepang">
+          <div class="image-accent"></div>
+        </div>
       </div>
 
-      <!-- ITEM 4 -->
-      <div class="service-item">
-        <div class="service-head">
+      <!-- ITEM 4 (Reverse) -->
+      <div class="alt-service-item reverse reveal">
+        <div class="alt-service-text">
           <span class="service-index">04</span>
           <h3>Pengurusan Dokumen Pemberangkatan</h3>
-        </div>
-        <div class="service-body">
-          <img src="public/images/services/dokumen.jpg" alt="Dokumen Jepang">
           <p>
             Layanan pengurusan dokumen keberangkatan ke Jepang bagi peserta Mirai
             Crown maupun non-peserta. Kami memastikan seluruh persyaratan
             administratif terpenuhi agar proses keberangkatan berjalan lancar
             dan tanpa kendala.
           </p>
+        </div>
+        <div class="alt-service-image">
+          <img src="public/images/services/dokumen.jpg" alt="Dokumen Jepang">
+          <div class="image-accent"></div>
         </div>
       </div>
 
@@ -280,6 +347,7 @@
 
 <!-- ROAD TO JAPAN -->
 <section id="process" class="section journey-map">
+  <div class="jp-ornament left">成功</div>
   <div class="container">
 
     <!-- HEADER -->
@@ -301,69 +369,72 @@
       </p>
     </div>
 
-    <!-- MAP -->
-    <div class="journey-canvas">
-
-      <!-- PATH -->
-      <svg class="journey-path" viewBox="0 0 1200 300" preserveAspectRatio="none">
-        <path
-          d="M20 150
-             C150 50, 300 250, 450 150
-             S750 50, 900 150
-             S1100 250, 1180 150"
-          fill="none"
-          stroke="rgba(198,40,40,0.35)"
-          stroke-width="4"
-          stroke-dasharray="6 10"
-        />
-      </svg>
-
-      <!-- NODES -->
-      <div class="journey-nodes">
-
-        <div class="journey-node" style="left:2%; top:48%;">
-          <div class="journey-point">📝</div>
+    <!-- ZIGZAG TIMELINE -->
+    <div class="zigzag-timeline">
+      
+      <div class="timeline-item reveal">
+        <div class="timeline-step">01</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">📝</div>
           <h4>Pendaftaran</h4>
           <p>Registrasi resmi peserta LPK</p>
         </div>
+      </div>
 
-        <div class="journey-node" style="left:15%; top:20%;">
-          <div class="journey-point">📘</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-step">02</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">📘</div>
           <h4>Pendidikan</h4>
           <p>Bahasa Jepang & budaya kerja (4–6 bulan)</p>
         </div>
+      </div>
 
-        <div class="journey-node" style="left:30%; top:70%;">
-          <div class="journey-point">🎓</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-step">03</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🎓</div>
           <h4>Sertifikasi</h4>
           <p>JFT / JLPT & Skill SSW</p>
         </div>
+      </div>
 
-        <div class="journey-node" style="left:45%; top:48%;">
-          <div class="journey-point">🔍</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-step">04</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🔍</div>
           <h4>Matching Job</h4>
           <p>Pencocokan user & perusahaan Jepang</p>
         </div>
+      </div>
 
-        <div class="journey-node" style="left:60%; top:20%;">
-          <div class="journey-point">🗣️</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-step">05</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🗣️</div>
           <h4>Interview</h4>
           <p>Wawancara langsung user Jepang</p>
         </div>
+      </div>
 
-        <div class="journey-node" style="left:75%; top:70%;">
-          <div class="journey-point">📂</div>
+      <div class="timeline-item reveal">
+        <div class="timeline-step">06</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">📂</div>
           <h4>Pemberkasan</h4>
           <p>Paspor, COE, visa & dokumen</p>
         </div>
-
-        <div class="journey-node final" style="left:92%; top:48%;">
-          <div class="journey-point plane">✈️</div>
-          <h4>Keberangkatan</h4>
-          <p>Menuju Jepang & mulai karier</p>
-        </div>
-
       </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-step">07</div>
+        <div class="timeline-content final-step">
+          <div class="timeline-icon">✈️</div>
+          <h4>Keberangkatan</h4>
+          <p>Terbang menuju Jepang</p>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -371,6 +442,7 @@
 
 <!-- ADVANTAGES -->
 <section id="advantages" class="section advantages">
+  <div class="jp-ornament right">品質</div>
   <div class="container">
 
     <!-- HEADER -->
@@ -390,10 +462,10 @@
       </p>
     </div>
 
-    <!-- HORIZONTAL CARDS -->
-    <div class="advantages-track">
+    <!-- STAGGERED GRID -->
+    <div class="advantages-grid">
 
-      <div class="advantage-card reveal delay-1">
+      <div class="advantage-card reveal">
         <div class="advantage-icon">🏛️</div>
         <div class="advantage-content">
           <h3>Legalitas Kuat & Resmi</h3>
@@ -406,7 +478,7 @@
         </div>
       </div>
 
-      <div class="advantage-card reveal delay-2">
+      <div class="advantage-card reveal stagger-1">
         <div class="advantage-icon">🧭</div>
         <div class="advantage-content">
           <h3>Pendampingan Menyeluruh</h3>
@@ -419,7 +491,7 @@
         </div>
       </div>
 
-      <div class="advantage-card reveal delay-3">
+      <div class="advantage-card reveal">
         <div class="advantage-icon">📊</div>
         <div class="advantage-content">
           <h3>Proses Jelas & Terukur</h3>
@@ -431,7 +503,7 @@
         </div>
       </div>
 
-      <div class="advantage-card reveal delay-4 highlight">
+      <div class="advantage-card reveal stagger-1 highlight">
         <div class="advantage-icon">🎌</div>
         <div class="advantage-content">
           <h3>Fokus Dunia Kerja Jepang</h3>
@@ -581,7 +653,17 @@
   </div>
 </section>
 
+
 <!-- CONTACT -->
+<!-- WAVE DIVIDER: testimonials → contact -->
+<div aria-hidden="true" style="line-height:0; margin-bottom:-2px;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block; width:100%; height:80px;">
+    <path d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,40 C1260,70 1380,20 1440,40 L1440,80 L0,80 Z"
+      fill="#b71c1c" />
+    <path d="M0,60 C360,20 720,80 1080,50 C1260,35 1380,65 1440,60 L1440,80 L0,80 Z"
+      fill="rgba(122,0,0,0.4)" />
+  </svg>
+</div>
 <section id="contact" class="section contact">
   <div class="container contact-box">
 

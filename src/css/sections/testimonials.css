@@ -3,9 +3,10 @@
 ========================= */
 
 .testimonials {
-  background: linear-gradient(180deg, #ffffff, #f4f4f4);
+  background: rgba(255, 255, 255, 0.5);
   padding: 140px 0;
   overflow: hidden;
+  position: relative;
 }
 
 /* =========================
@@ -18,17 +19,18 @@
 }
 
 .testimonials-title {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 5vw, 4rem);
   display: flex;
   gap: 14px;
   margin-bottom: 26px;
+  text-transform: uppercase;
 }
 
 /* REAL */
 .title-real {
-  color: #111;
-  font-weight: 900;
+  color: var(--dark);
+  font-weight: 700;
   letter-spacing: 2px;
   position: relative;
 }
@@ -37,62 +39,71 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -2px;
   width: 100%;
   height: 4px;
-  background: #111;
+  background: var(--dark);
   border-radius: 4px;
 }
 
 /* RESULTS */
 .title-results {
-  background: linear-gradient(90deg, #c62828, #ff5252);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 900;
+  color: var(--red-primary);
+  font-weight: 700;
 }
 
 /* DESC */
 .testimonials-desc {
-  font-size: 1.05rem;
-  line-height: 2;
-  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-text);
 }
 
 .testimonials-desc strong {
-  font-weight: 800;
+  font-weight: 700;
+  color: var(--dark);
 }
 
 .testimonials-desc .highlight {
-  background: rgba(0,0,0,0.06);
+  background: var(--gold-light);
   padding: 2px 8px;
-  border-radius: 6px;
+  border-radius: var(--radius);
+  color: var(--dark);
 }
 
 .testimonials-desc .accent {
-  font-weight: 800;
+  font-weight: 700;
   position: relative;
 }
 
-.accent.red { color: #c62828; }
-.accent.blue { color: #1976d2; }
-.accent.green { color: #2e7d32; }
+.accent.red { color: var(--red-primary); }
+.accent.blue { color: var(--gold-primary); } /* Changed blue to gold for theme consistency */
+.accent.green { color: var(--dark); } /* Changed green to dark for theme consistency */
 
 /* =========================
-   3D SCROLL
+   SCROLL TRACK
 ========================= */
 
 .results-viewport {
-  perspective: 1200px;
+  width: 100%;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+}
+
+.results-viewport::-webkit-scrollbar {
+  height: 8px;
+}
+
+.results-viewport::-webkit-scrollbar-thumb {
+  background: var(--gold-primary);
+  border-radius: 99px;
 }
 
 .results-track {
   display: flex;
-  gap: 48px;
-  padding: 40px 20px 60px;
-  transform-style: preserve-3d;
+  gap: 30px;
+  padding: 20px 20px 40px;
 }
 
 /* =========================
@@ -101,52 +112,74 @@
 
 .result-card {
   min-width: 320px;
-  background: #fff;
-  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.15);
-  transform: translateZ(-80px) scale(0.92);
-  transition: transform 0.6s ease, filter 0.6s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+  scroll-snap-align: center;
+}
+
+.result-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border-color: var(--gold-primary);
 }
 
 .result-image {
   height: 420px;
+  position: relative;
+  overflow: hidden;
 }
 
 .result-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.result-card:hover .result-image img {
+  transform: scale(1.05);
 }
 
 .result-info {
   padding: 24px;
   text-align: center;
+  position: relative;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.9));
 }
 
 .result-info h4 {
+  font-family: var(--font-heading);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
 }
 
 .result-info p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--gray-text);
 }
 
 /* BADGE */
 .result-badge {
   display: inline-block;
-  margin-bottom: 10px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 800;
+  margin-bottom: 15px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.result-badge.red { background: rgba(198,40,40,.15); color:#c62828; }
-.result-badge.blue { background: rgba(25,118,210,.15); color:#1976d2; }
-.result-badge.green { background: rgba(46,125,50,.15); color:#2e7d32; }
+.result-badge.red { background: rgba(183, 28, 28, 0.1); color: var(--red-primary); border: 1px solid rgba(183, 28, 28, 0.2); }
+.result-badge.blue { background: rgba(212, 175, 55, 0.1); color: var(--gold-primary); border: 1px solid rgba(212, 175, 55, 0.2); }
+.result-badge.green { background: rgba(26, 26, 26, 0.1); color: var(--dark); border: 1px solid rgba(26, 26, 26, 0.2); }
 
 /* =========================
    SCROLL REVEAL
